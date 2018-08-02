@@ -56,6 +56,15 @@ bool TemplatesEventAnalyzer::runEvent(CJLSTTree* tree, float const& externalWgt,
     float& ZZMass = *(valfloats["ZZMass"]);
     product.setNamedVal("ZZMass", ZZMass);
     unordered_map<TString, float*>::const_iterator it_GenHMass;
+    unordered_map<TString, float*>::const_iterator it_ZZMassErrCorr;
+
+    if (HelperFunctions::getUnorderedMapIterator("ZZMassErrCorr ", valfloats, it_ZZMassErrCorr)){
+
+      float const& ZZMassErrCorr = *(it_ZZMassErrCorr ->second);
+
+      product.setNamedVal("ZZMassErrCorr", ZZMassErrCorr);
+
+    }
     if (HelperFunctions::getUnorderedMapIterator("GenHMass", valfloats, it_GenHMass)){
       float const& GenHMass = *(it_GenHMass->second);
       product.setNamedVal("GenHMass", GenHMass);

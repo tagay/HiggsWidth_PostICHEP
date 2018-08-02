@@ -97,6 +97,7 @@ void makeQQBkgTemplatesFromPOWHEG_one(const Channel channel, const Category cate
     // Book common variables needed for analysis
     tree->bookBranch<float>("GenHMass", 0);
     tree->bookBranch<float>("ZZMass", -1);
+    tree->bookBranch<float>("ZZMassErrCorr", -1);
     tree->bookBranch<short>("Z1Flav", 0);
     tree->bookBranch<short>("Z2Flav", 0);
     // Common variables for reweighting
@@ -149,6 +150,7 @@ void makeQQBkgTemplatesFromPOWHEG_one(const Channel channel, const Category cate
     theAnalyzer.addConsumed<float>("trigEffWeight");
     theAnalyzer.addConsumed<float>("GenHMass");
     theAnalyzer.addConsumed<float>("ZZMass");
+    theAnalyzer.addConsumed<float>("ZZMassErrCorr");
     theAnalyzer.addConsumed<short>("Z1Flav");
     theAnalyzer.addConsumed<short>("Z2Flav");
     // Add discriminant builders
